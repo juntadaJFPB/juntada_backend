@@ -1,0 +1,44 @@
+{
+    "name": "livro-carga-virtual-backend",
+    "version": "2.0.0",
+    "description": "Livro de Carga Virtual - Backend",
+    "main": "index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "seed": "sequelize db:seed:all",
+        "migrate": "sequelize db:migrate",
+        "dev": "nodemon --exec babel-node src",
+        "build": "babel src -d dist --source-maps",
+        "production": "pm2 start processes.json --no-daemon"
+    },
+    "author": "Escritório de Inovação",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.6",
+        "@babel/node": "^7.8.7",
+        "@babel/preset-env": "^7.9.6",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "crypto-js": "^4.0.0",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.1.6",
+        "express-promise-router": "^3.0.3",
+        "fs": "0.0.1-security",
+        "jest": "^26.4.2",
+        "jsonwebtoken": "^8.5.1",
+        "ldapjs": "^1.0.2",
+        "morgan": "^1.10.0",
+        "mysql": "^2.18.1",
+        "mysql2": "^1.6.5",
+        "pm2": "^4.4.0",
+        "roboto-font": "^0.1.0",
+        "routerx": "^0.2.1",
+        "selenium-webdriver": "^4.0.0-alpha.7",
+        "sequelize": "^5.21.5",
+        "sequelize-cli": "^5.5.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
+    }
+}

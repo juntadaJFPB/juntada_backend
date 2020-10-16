@@ -1,0 +1,8 @@
+{
+    "name": "jfpb_portarias",
+    "script": "dist/index.js",
+    "merge_logs": true,
+    "max_restarts": 20,
+    "exec_mode": "cluster",
+    "instances": 4
+}

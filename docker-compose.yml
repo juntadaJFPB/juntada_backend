@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    portarias-db:
+       image: mysql:5.7
+       container_name: portarias-db
+       ports:
+           - "3306:3306"
+       volumes:
+          - "portarias_data:/var/lib/mysql"
+       environment:
+          MYSQL_DATABASE: portarias
+          ALLOW_EMPTY_PASSWORD: "yes"
+          MYSQL_ROOT_PASSWORD: password
+  
+volumes:
+    portarias_data:
+        external: true

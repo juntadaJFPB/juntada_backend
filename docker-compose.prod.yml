@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+    portarias-back:
+        build: .
+        image: portarias-back
+        container_name: portarias-back
+        depends_on:
+            - portarias-db
+        command: sh -c "npm run migrate && npm run production"
+        volumes:
+            - "./portarias/uploads:/usr/src/portarias/uploads"
+        environment:
+            DB_HOST: ${DB_HOST}
+            DB_SCHEMA: ${DB_SCHEMA}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            APP_TOKEN: ${APP_TOKEN}
+        ports:
+            - "3000:3000"
+        restart: on-failure
+                
+    portarias-db:
+        image: mysql:5.7
+        container_name: portarias-db
+        depends_on:
+            - portarias-adminer
+        command: "--innodb_use_native_aio=0"
+        volumes:
+             - "./portarias/database:/var/lib/mysql"
+        environment:
+            MYSQL_DATABASE: ${DB_SCHEMA}
+            ALLOW_EMPTY_PASSWORD: "yes"
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        ports:
+            - "3306:3306"
+        restart: on-failure
+                    
+    portarias-adminer:
+        image: adminer:4.7
+        container_name: portarias-adminer
+        restart: always
+        ports:
+            - "6542:8080"
+        restart: on-failure
