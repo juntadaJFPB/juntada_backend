@@ -1,5 +1,5 @@
 import ldap from 'ldapjs'
-import { Usuario, Setor, UsuarioPapel } from '../database/models'
+import { Usuario, Setor, UsuarioPapel, Perfil } from '../database/models'
 
 
 const dominio = '@jfpb.jus.br'
@@ -13,6 +13,9 @@ const getUser = (req, res, next) => {
         }, {
             model: Setor,
             as: 'setor',
+        },{
+            model: Perfil,
+            as: 'perfil'
         }]
     }).then(usuario => {
         if (usuario === undefined) {

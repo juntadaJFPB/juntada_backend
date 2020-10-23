@@ -20,13 +20,7 @@ module.exports = {
                 type: Sequelize.STRING,
                 unique: false
             },
-
-            perfil: {
-                allowNull: false,
-                type: Sequelize.STRING,
-                unique: false
-            },
-
+            
             setor_id: {
                 allowNull: true,
                 type: Sequelize.INTEGER,
@@ -44,7 +38,16 @@ module.exports = {
                     key: 'id'
                 }
             },
-
+            
+            perfil_id: {
+                allowNull: true,
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'perfil',
+                    key:'id',
+                }
+            },
+            
             ativo: {
                 allowNull: false,
                 type: Sequelize.BOOLEAN,

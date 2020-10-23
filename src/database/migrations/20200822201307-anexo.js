@@ -25,7 +25,8 @@ module.exports = {
         references: {
           model: 'Correspondencia',
           key: 'id'
-        }
+        },
+        onDelete: 'cascade'
       },
       created_at: {
         allowNull: false,

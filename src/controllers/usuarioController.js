@@ -1,4 +1,4 @@
-import { Usuario, Setor, UsuarioPapel } from "../database/models";
+import { Usuario, Setor, UsuarioPapel, Perfil } from "../database/models";
 import tokenService from "../services/tokenService";
 
 export default {
@@ -72,6 +72,10 @@ export default {
             model: UsuarioPapel,
             as: "papel",
           },
+          {
+            model: Perfil,
+            as: "perfil"
+          }
         ],
         order: ["nome"],
       })
@@ -278,6 +282,7 @@ export default {
   login: (req, res, next) => {
     try {
       const usuario = req.body.usuario;
+      console.log(usuario)
       const token = tokenService.encode(usuario.id, usuario.papel.descricao, usuario.usuario)
       res.status(200).json({ usuario , token });
     } catch (error) {

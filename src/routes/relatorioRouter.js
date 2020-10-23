@@ -7,12 +7,12 @@ const router = routerx()
 
 
 
-router.get('/:id', auth.verifyAdmin, relatorioController.findById)
-router.get('/', auth.verifyAdmin, relatorioController.list)
-router.post('/', auth.verifyAdmin, relatorioController.add)
-router.put('/:id', auth.verifyAdmin, relatorioController.update)
+router.get('/:id', auth.verifyUsuario, relatorioController.findById)
+router.get('/', auth.verifyUsuario, relatorioController.list)
+router.post('/', auth.verifyUsuario, relatorioController.add)
+router.put('/:id', auth.verifyUsuario, relatorioController.update)
 // router.put('/addCorrespondencia/:id', relatorioController.addCorrespondencia)
-router.post('/up', auth.verifyAdmin, relatorioController.up)
+router.post('/up', auth.verifyUsuario, relatorioController.up)
 
 
 export default router

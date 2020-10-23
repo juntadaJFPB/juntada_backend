@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         status: DataTypes.ENUM('Upado', 'Nao Upado'),
         status_bot: DataTypes.ENUM('Nao Houve Tentativa', 'Houve Tentativa', 'Sucesso'),
         usuario_id: DataTypes.INTEGER,
+        ativo: DataTypes.BOOLEAN,
     }, {
         freezeTableName: true,
         tableName: 'correspondencia'

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { Usuario, Setor, UsuarioPapel } from '../database/models'
+import { Usuario, Setor, UsuarioPapel, Perfil } from '../database/models'
 
 async function checkToken(token) {
     try {
@@ -12,7 +12,12 @@ async function checkToken(token) {
             }, {
                 model: Setor,
                 as: 'setor',
-            }]
+            },
+            {
+                model: Perfil,
+                as: 'perfil'
+            }
+        ]
         }).then(response => {
             if (response) {
                 const { id, papel: { descricao }, usuario } = response
@@ -49,6 +54,10 @@ export default {
                 }, {
                     model: Setor,
                     as: 'setor',
+                },
+                {
+                    model: Perfil,
+                    as: 'perfil'
                 }]
             })
         } catch (error) {
