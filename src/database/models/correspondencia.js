@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
         destinatario: DataTypes.STRING,
         data: DataTypes.STRING,
         status: DataTypes.ENUM('Upado', 'Nao Upado'),
-        status_bot: DataTypes.ENUM('Nao Houve Tentativa', 'Houve Tentativa', 'Sucesso'),
+        status_bot: DataTypes.ENUM('Não houve tentativa', 'Erro na tentativa', 'Sucesso na tentativa'),
         usuario_id: DataTypes.INTEGER,
         ativo: DataTypes.BOOLEAN,
     }, {

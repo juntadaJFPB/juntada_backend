@@ -28,7 +28,6 @@ export default {
     add: (req, res, next) => {
         try {
             Relatorio.create(req.body).then(response => {
-                console.log(response)
                 res.status(201).json({ success: true, relatorio: response })
             }).catch(error => {
                 console.log(error)

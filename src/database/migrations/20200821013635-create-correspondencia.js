@@ -36,7 +36,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
         unique: false,
-        defaultValue: "Ainda nao houve tentativa",
+        // defaultValue: "Ainda nao houve tentativa",
+        defaultValue: "Não houve tentativa"
       },
 
       usuario_id: {
