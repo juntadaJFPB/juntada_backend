@@ -12,7 +12,7 @@ router.post("/upload/:id",auth.verifyUsuario, correspondenciaController.upload);
 router.get('/retrieve/:arquivo/:token', correspondenciaController.download)
 router.get('/:id', auth.verifyAdmin,correspondenciaController.findById)
 router.put('/deactivate/:id', correspondenciaController.deactivate)
-router.delete('/delete/:id', correspondenciaController.delete);
+router.delete('/delete/:id', auth.verifyUsuario,correspondenciaController.delete);
 
 
 export default router;

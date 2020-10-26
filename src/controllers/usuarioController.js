@@ -282,7 +282,7 @@ export default {
   login: (req, res, next) => {
     try {
       const usuario = req.body.usuario;
-      console.log(usuario)
+      // console.log(usuario)
       const token = tokenService.encode(usuario.id, usuario.papel.descricao, usuario.usuario)
       res.status(200).json({ usuario , token });
     } catch (error) {
